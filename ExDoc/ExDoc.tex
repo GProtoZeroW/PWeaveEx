@@ -1,0 +1,334 @@
+\documentclass[a4paper,11pt,final]{article}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{titlesec}
+  \setcounter{secnumdepth}{4}
+  \titleformat{\paragraph}
+  {\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+  \titlespacing*{\paragraph}
+  {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\usepackage{listings}
+\usepackage{booktabs}
+
+\newcommand{\pweave}{\emph{Pweave}\space}
+\newcommand{\python}{\emph{Python}\space}
+\newcommand{\latex}{\LaTeX\space}
+\newcommand{\sweave}{\emph{Sweave}\space}
+\newcommand{\pandas}{\emph{Pandas}\space}
+\newcommand{\sympy}{\emph{SymPy}\space}
+\newcommand{\mpl}{\emph{matplotlib}\space}
+\newcommand{\np}{\emph{NumPy}\space}
+
+%stuff to create draft watermark
+\usepackage{xcolor}
+\usepackage[printwatermark]{xwatermark}
+\newwatermark*[allpages,color=red!50,angle=45,scale=3,xpos=0,ypos=0]{Draft-In Progress}
+
+
+\begin{document}
+% title
+\title{text}
+\author{Steven Armour}
+
+\maketitle
+
+
+\begin{abstract}
+will do later
+
+Note this is still a work in progress. As such I have not done my bibtex yet and therefore I use random key banging (Ex: alkdjfkadjfk) as a place holder of information I need to come back and add to.
+\end{abstract}
+
+\section{Introduction}
+  Despite our societies hopeful move to a paperless society we are still bound to the need for formal reports. These reports are often time consuming, tedious and therefore subject to question of accuracy of information presented therein; however, a formal report is often a legal binding document. The inaccuracy of reports can be further compounded when required to cite information from previously inaccurate reports or a person having to having to fill out the same report with only slight difference in say a few items in the report. These discrepancies can then be attributed to human error. Presented here is a guide to means elevating human error in only the creation of report by combining the power of \latex to create perfectly typeset documents via text markup code and integration of \python to handle retrieval and or processing of information for creating reports by means of \pweave.
+
+  The scope of coverage of this guide to \pweave it to that \pweave. While there will be use of various aspects of \latex and usage of various \python libraries packages the author assumes that the reader is already familiar with the basics of both. If the reader is not familiar with \latex or \python the following references should provide suplimentry materail learning both: adflakldsfjksdjfkj
+
+\section{Discussion}
+  \pweave was developed by adlkakfjkdj as a response from the \python community to the \emph{S/R} community's \sweave integration of programing code and \latex markdown code in a single document to create reproducible literature. For a history and guide to \sweave please see the following references lksdjfkajdrfj. While \pweave is a milestone in the \python community for "porting" \sweave to \python; it however is not alone the integration of \python and \latex. For instants the \emph{Ipython Notebook} (now under project \emph{Jupyter}) can by way of adjkajdfkj create \latex from a \emph{Ipython Notebook}. Further, there are also ways of producing \emph{PDF} reports from languages other than \python. The interested reader can look at the following resources for exsamples: ajdfakdjfkajdkfjakd.
+
+  The niche that \pweave plays in the ecosystem of \python and \latex integration is in allowing the writer\textbackslash programmer separation and recombination the \latex \& \python sections of a document. This is the classical "Divide and Conquer" approach that is already well practiced in programming via the separations of backend: database, calculations, \textit{ex} ;\& Front End: Graphical User Interface, graphs, Web page views, \textit{ex}. For use of \pweave this means the task of drafting the content and creation of the document layout with \latex is one action; while developing the \python code to perform the tobe automated action is another. These two semi-separate actions are then "weaved" together with \pweave to create the final product. While this is \emph{Pweav}'s strength it is also a weakness due to having to sync the development of the \latex and \python much like any frontend \textbackslash Backend development; therefore, best software engineering management practices should be adopted by any team when creating \pweave documents.
+
+\section{\emph{Pweave} Setup}
+  To use \pweave the following must be installed:
+     \begin{itemize}
+        \item \emph{Python 2} or \emph{Python 3}
+        \item \latex
+     \end{itemize}
+
+  \noindent The following are highly recommended in the use of \python:
+     \begin{itemize}
+        \item \emph{pip}
+        \item An \emph{Integrated Development Environment (IDE)} for \python
+     \end{itemize}
+
+
+  And the following are highly recommended in the use of \latex:
+     \begin{itemize}
+        \item An \emph{Integrated Writing Environment} for \latex
+     \end{itemize}
+
+  \noindent Once the requirements listed in table dsfajdfkj are satisfied \pweave can be setup on your machine as follows:
+  \begin{enumerate}
+     \item Open a termanal (\emph{CMD} in Microsoft Winows) window
+
+     \item Enter the following into the windows followed by hitting enter
+     \begin{center}
+
+     \begin{lstlisting}[language=bash]
+$ sudo pip install --upgrade Pweave
+     \end{lstlisting}
+     \end{center}
+     If you are using Microft windows or a non Debian system ignore \emph{sudo}
+
+     \item After the instulation has completed varfy it was successfull by entering in the same window:
+     \begin{center}
+     \begin{lstlisting}[language=bash]
+Pweave --help
+     \end{lstlisting}
+     \end{center}
+     where if the instalantion was succesful a listing of \pweave commands will be shown. From here the window can be closed.
+
+  \end{enumerate}
+
+
+
+
+\section{\emph{Pweave} How To}
+  \subsection{Workflow}
+  \subsection{From \emph{Pweave} to \emph{PDF}}
+  \subsection{Code Chunk Controls}
+  \subsection{Common Examples}
+     \subsubsection{Tables}
+        \paragraph{\pandas}
+        The \pandas library extends the structured arrays found in \emph{NumPy} into more \emph{SQL} database table like arrays. These special arrays in \pandas are called "\emph{dataframes}" and just like \emph{NumPy} arrays or \emph{SQL} tables "Quarries" can be called against them to extract or perform calculation on subsets of the original dataframe based on certain criteria. Here is shown a primitive example of using \pandas with \pweave.
+
+        For this exsample a \emph{CSV} file acured from alkdfjkajf listing some basic information about past USA superbowls.In order to use \pandas in \latex the \latex package "booktabs" will need to be added to the preample of the document
+           Start by importing \pandas into the \python environment as follows
+
+\begin{verbatim}
+import pandas as pd
+\end{verbatim}
+
+           Next the path to the .csv containing the Superbowl information is specified followed by loading the data into a dataframe named \texttt{df}.
+
+
+\begin{verbatim}
+#path to .csv file
+path=r'/home/iridium/string12oil@gmail.com/PWeaveEx/ExDoc/Untitled
+Folder/SuperbowlFacts.csv'
+
+#load .csv to dataframe df
+df=pd.read_csv(path)
+print(r'\vspace{.5cm}')
+\end{verbatim}
+\begin{verbatim}
+\vspace{.5cm}
+
+\end{verbatim}
+
+
+          The first three rows in \texttt{df} are specified by using the \texttt{.head(3)} and are printed to a \latex table by means of adding \texttt{.to\_latex()} after the head method. The complete code is as shown
+\begin{verbatim}
+#<<echo=False, wrap=True, results='tex'>>=
+print(df.head(3).to_latex())
+print(r'\vspace{.5cm}')
+#@
+\end{verbatim}
+
+
+
+\begin{tabular}{llllrlrllll}
+\toprule
+{} &        Date &           SB &                Winner &  Pts &
+Loser &  Pts.1 &            MVP &                        Stadium &
+City &       State \\
+\midrule
+0 &  Feb 1 2015 &    XLIX (49) &  New England Patriots &   28 &
+Seattle Seahawks &     24 &      Tom Brady &  University of Phoenix
+Stadium &         Glendale &     Arizona \\
+1 &  Feb 2 2014 &  XLVIII (48) &      Seattle Seahawks &   43 &
+Denver Broncos &      8 &  Malcolm Smith &                MetLife
+Stadium &  East Rutherford &  New Jersey \\
+2 &  Feb 3 2013 &   XLVII (47) &      Baltimore Ravens &   34 &  San
+Francisco 49ers &     31 &     Joe Flacco &        Mercedes-Benz
+Superdome &      New Orleans &   Louisiana \\
+\bottomrule
+\end{tabular}
+
+\vspace{.5cm}
+
+
+           Notice in the code chunk we have set \texttt{wrap=True} and \texttt{results='tex'} so that print out is in \latex format.
+          
+           To quickly show how the data analysis abilities of \pandas we will use \texttt{.describe()} method to call find some simple statics on the \emph{Pts.} and \emph{Pts.1} columns
+       
+        \begin{verbatim}
+#<<echo=False, wrap=True, results='tex'>>=
+print()
+print(df.describe().to_latex())
+print(r'\vspace{.5cm}')
+#@
+        \end{verbatim}
+
+
+
+\begin{tabular}{lrr}
+\toprule
+{} &        Pts &      Pts.1 \\
+\midrule
+count &  49.000000 &  49.000000 \\
+mean  &  30.265306 &  15.938776 \\
+std   &   9.778325 &   6.862969 \\
+min   &  14.000000 &   3.000000 \\
+25\%   &  23.000000 &  10.000000 \\
+50\%   &  30.000000 &  17.000000 \\
+75\%   &  35.000000 &  21.000000 \\
+max   &  55.000000 &  31.000000 \\
+\bottomrule
+\end{tabular}
+
+\vspace{.5cm}
+
+
+        As can be seen that \pandas dataframe \texttt{.to\_latex()} method can be fully leveraged by means \pweave. For the interested reader the full \texttt{.to\_latex()} method document can be found at ldkfjakdjfkj and more inforamtion about \pandas can be found at alsdkfjkadsjfk.
+          
+          
+                   
+
+
+
+
+
+
+     \subsubsection{Plotting -\emph{Matplotlib}}
+     \subsubsection{Mathematics -\emph{Sympy}}
+     	\sympy is \emph{Python}'s Computer Algebra System library. It provides a means of defining symbolic symbols to build mathematical functions  in the traditional means of "paper and pencil" via the computer. This aids in the derivation process of formulas by leveraging the power of the computer to keep track of very large expression without miss transcribing terms between steps in the derivation. It has also been shown that with use of symbolic algebra systems to reduce the governing equations to their most reduce form before proceeding with numerical solving increase the efficiency speed of the numerical solution as opposed to using a non reduced formula. Further \sympy has built in plotting models to produce \mpl plots from the expression and the \texttt{lambdify} function to convert the symbolic expression into a \np function. As of the time of writing this guide \sympy is still under much development; as such, some auxiliary functions are used in the following example and defined in the appendix. For more information on \sympy please consult asldfkjkadjfkj
+
+		The following example on how to use \sympy with \pweave is based on Example 9 from chapter 5 of Introduction to Mathematical Economics by Dr. Edward Dowling. The example shows how to use the well known Lagrange Multiplier in order to minimize a function subject to constraint equation. In the example it will be shown how to
+
+
+
+		We begin by importing sympy into our environment
+
+\begin{verbatim}
+from sympy import *
+from sympy.plotting import *
+from pylab import *
+\end{verbatim}
+
+
+	We then need to define two functions the first taken from adkfjaj gives us a gradient function. The second enhances the \sympy \texttt{latex()} function.
+
+\begin{verbatim}
+#auxiliary function for gradient
+grad = lambda func, vars :[diff(func,var) for var in vars]
+
+#auxiliary function for printing sympy into latex
+def PrintLaTex(func, inline=False):
+   Statement=latex(func)
+
+   if inline:
+       print('$'+Statement+'$')
+   else:
+       print('$$'+Statement+'$$')
+\end{verbatim}
+
+
+		We are now ready to use \sympy. We start by creating our functions in the next code chunk. Where first we create our english alphabet symbols. In order to use non-english symbols in \sympy we have to directly import them from the \texttt{abs} module. Further to print out to latex we set in the \texttt{results} option in the chevrons to \texttt{'tex'}
+
+\begin{verbatim}
+#define are english alphabet symbols
+x, y, z, Z=symbols('x, y, z, Z')
+
+#load in the greek letter lamba
+from sympy.abc import lamda
+
+#print out the defined symbols to latex
+PrintLaTex([x, y, z, Z, lamda])
+\end{verbatim}
+$$\left [ x, \quad y, \quad z, \quad Z, \quad \lambda\right ]$$
+
+
+
+
+		The formula we wish to minimize is $z = 4 x^{2} + 3 x y + 6 y^{2}$. Subject to the constraint $56 = x + y$.
+
+		Two things need to be noted in the last paragraph in order to fully use \sympy with \pweave. The first is that in order to show equalities in \sympy we must use the \texttt{Eq()} function. It will be shown momentarily how to use this with differentiation; however the results are buggy. Second to print the formula inline with have have used the \texttt{<\% ...\%>} \pweave code chunk environment, the \texttt{;} to perform multiple operations in \python on the same line, and finally we have set the \textbf{PrintLaTex()} inline parameter to \texttt{True}. The code to show make the last paragraph is shown in the following verbatim section.
+
+\begin{verbatim}
+The formula we wish to minimize is #$z = 4 x^{2} + 3 x y + 6 y^{2}$.
+Subject to the constraint $56 = x + y$.
+\end{verbatim}
+
+
+		\sympy does not normally use formula with equalities instead it uses expressions and by default sets them to $0$. Next is shown a 3d plot called from \sympy of the $z$ function along with the constraint equation.
+
+\begin{verbatim}
+x, y, z, Z=symbols('x, y, z, Z')
+PrintLaTex(zform)
+plot3d(zform.args[1], (x, -10, 10), (y, -10, 10))
+\end{verbatim}
+$$z = 4 x^{2} + 3 x y + 6 y^{2}$$
+
+\includegraphics[width= \linewidth]{figures/ExDoc_figure8_1.pdf}
+
+
+		Note that if you use both \texttt{print} and plotting in the same \pweave code chunk you can not use the \texttt{caption} or \texttt{name} options
+
+
+\begin{verbatim}
+print('our constraint equation set to zero')
+constraint=Eq(0,cform.args[0]-cform.args[1])
+PrintLaTex(constraint)
+\end{verbatim}
+our constraint equation set to zero
+$$0 = - x - y + 56$$
+
+
+
+\begin{verbatim}
+plot3d(constraint.args[1], (x, -10, 10), (y, -10, 10))
+\end{verbatim}
+\begin{figure}[htpb]
+\center
+\includegraphics[width= \linewidth]{figures/ExDoc_figure10_1.pdf}
+\caption{Constraint Eq. plot}
+\label{fig:None}
+\end{figure}
+
+
+		To then solve the lagrange multiplier method is employed to create a new function
+
+\begin{verbatim}
+#this is the variable we will calculate with
+Zeq=zform.args[1]-lamda*constraint.args[1]
+
+#this is the variable we will use to show the derivation
+Zform=Eq(Z, Zeq)
+PrintLaTex(Zform)
+\end{verbatim}
+$$Z = - \lambda \left(- x - y + 56\right) + 4 x^{2} + 3 x y + 6
+y^{2}$$
+
+
+
+		To solve we find the gradient of $Z$ and set it to zero; $\nabla Z=0$. This currently has propom in trying to print out differentiation part  in both raw useage and in implementing the differentiation throughout the whole equality expressions. Till thi is resolved it will not be shown; however the final solution to the minimization is.
+%Needs to be fixed getting strange error function
+%<<name='GZ solve', results='tex'>>=
+GZ=grad(Zeq, [x, y, lamda])
+PrintLaTex(GZ)
+@
+        
+\section{Conclusion}
+\section{Further Resources}
+
+
+
+
+\end{document}
+
+
+
+
+
