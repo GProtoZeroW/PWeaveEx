@@ -58,7 +58,7 @@ for i in UseList:
        df.loc[r, 'days']=j
        df.loc[r, ['week', 'month', 'year']]=r, i[1], i[0]
        r+=1
-#print df.head()
+#print df
 #print ''
 
 #add assignments for each week
@@ -73,7 +73,7 @@ for index, row in df.iterrows():
        Assign=[People[i] for i in random.sample(People.keys(), 4)]
        row['Assenments']=Assign
 
-#print ''
+#print df
 
 #and here we write are LaTeX print stuff to make the tables
 #pweave is defaulting to Python 3 on my beast, oh joy
@@ -85,7 +85,7 @@ for i in MonthDicKeys:
    print(r'\begin{tabular}{||c|c|c|c|c|c|c|c||}')
 
    #print the table internals
-   for index, row in df.loc[df['month']=='07'].iterrows():
+   for index, row in df.loc[df['month']==i].iterrows():
        d=row['days']; d=[str(i) for i in d]
        a=row['Assenments']
 

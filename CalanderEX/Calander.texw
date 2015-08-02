@@ -113,12 +113,12 @@ for index, row in df.iterrows():
 for i in MonthDicKeys:
    #month title and table begin statement
    print(r'\begin{center}')
-   print(r'\Huge '+MonthDic[i])
+   print(r'\huge '+MonthDic[i])
    print(r'\end{center}')
    print(r'\begin{tabular}{||c|c|c|c|c|c|c|c||}')
 
    #print the table internals
-   for index, row in df.loc[df['month']=='07'].iterrows():
+   for index, row in df.loc[df['month']==i].iterrows():
        d=row['days']; d=[str(i) for i in d]
        a=row['Assenments']
 
